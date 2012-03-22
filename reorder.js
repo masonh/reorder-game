@@ -20,16 +20,16 @@ function startgame()
 	$("#startbutton").val("New Game");
 	$("#resetbutton").show();
 	
-	key = shufflepieces();
-	pieces = key.slice();
-	board = shufflepieces();
+	key = shufflepieces(pieces);
+	board = key.slice();
+	board = shufflepieces(board);
 	shuffled = board.slice();
 	display();
 }
 
-function shufflepieces()
+function shufflepieces(_pieces)
 {
-	var result = pieces.slice();
+	var result = _pieces.slice();
 	var temp;
 	var pos;
 	var len=result.length;
@@ -77,6 +77,11 @@ function clicked(spot)
 		click = spot;
 		return;
 	}
+	if(click == spot)
+	{
+		click = -1;
+		return;
+	}
 	moves++;
 	var tmp = board[click];
 	for (var i=click; i < spot; i++)
@@ -99,6 +104,10 @@ function clicked(spot)
 	}
 	alert("Yay! You're a moron!");
 	gamestarted = false;
-	$("#resetbutton").hide();
 	moves=0;
+}
+
+function instructions()
+{
+	alert("How to play:\n\nTry to order the blocks like the smaller image by clicking a block to select it, then clicking the block in the spot you want to place your first block. The game is tricky because the blocks \"shift\" to fill in, so you have to think about where they will move. Try to get it in the least number of moves. Play the same level again by clicking the reset button.");
 }
