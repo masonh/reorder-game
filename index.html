@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>Reorder!</title>
-<script type="text/javascript" src="jquery-1.7.2.js" ></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" ></script>
 <script type="text/javascript" src="reorder.js" ></script>
 <style type="text/css">
 	table#game {
@@ -14,12 +14,16 @@
 		width:100px;
 	}
 	table#game td img {
-		height:100px;
+		//height:100px;
 		width:100px;
 	}
 	table#key td {
 		border: 1px solid black;
 		height:50px;
+		width:50px;
+	}
+	table#key td img {
+		//height:50px;
 		width:50px;
 	}
 	#resetbutton {
@@ -32,19 +36,19 @@
 <input type="button" id="resetbutton" onclick="resetgame()" value="Reset" />
 <table id="game">
 <tr>
-	<td><img id="0" src="blank.png" alt="" /></td>
-	<td><img id="1" src="blank.png" alt="" /></td>
-	<td><img id="2" src="blank.png" alt="" /></td>
+	<td onclick="clicked(0)"><img id="b0" src="blank.png" alt="" /></td>
+	<td onclick="clicked(1)"><img id="b1" src="blank.png" alt="" /></td>
+	<td onclick="clicked(2)"><img id="b2" src="blank.png" alt="" /></td>
 </tr>
 <tr>
-	<td><img id="3" src="blank.png" alt="" /></td>
-	<td><img id="4" src="blank.png" alt="" /></td>
-	<td><img id="5" src="blank.png" alt="" /></td>
+	<td onclick="clicked(3)"><img id="b3" src="blank.png" alt="" /></td>
+	<td onclick="clicked(4)"><img id="b4" src="blank.png" alt="" /></td>
+	<td onclick="clicked(5)"><img id="b5" src="blank.png" alt="" /></td>
 </tr>
 <tr>
-	<td><img id="6" src="blank.png" alt="" /></td>
-	<td><img id="7" src="blank.png" alt="" /></td>
-	<td><img id="8" src="blank.png" alt="" /></td>
+	<td onclick="clicked(6)"><img id="b6" src="blank.png" alt="" /></td>
+	<td onclick="clicked(7)"><img id="b7" src="blank.png" alt="" /></td>
+	<td onclick="clicked(8)"><img id="b8" src="blank.png" alt="" /></td>
 </tr>
 </table>
 <table id="key">
@@ -64,7 +68,7 @@
 	<td><img id="k8" src="blank.png" alt="" /></td>
 </tr>
 </table>
-<div id="stats">
+<div id="stats">Moves: <span id="moves">0</span>
 </div>
 </body>
 </html>

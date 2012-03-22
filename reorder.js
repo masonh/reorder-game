@@ -4,18 +4,9 @@ var shuffled;
 var board;
 var key;
 var pieces = ["images/1.png", "images/2.png", "images/3.png",
-		"images/4.png", "images/5.png","images/6.png",
-		"images/7.png", "images/8.png", "images/9.png"];
-
-$(document).ready(function() {
-	var tmp;
-	for (var i=0; i < 9; i++)
-	{
-		tmp = "#"+i;
-		tmp2 = "spotclicked("+i+")"
-		$(tmp).click(tmp2);
-	}
-});
+		"images/4.png", "images/5.png","images/6.png"];
+var click = -1;
+var moves = 0;
 
 function startgame()
 {
@@ -30,44 +21,84 @@ function startgame()
 	$("#resetbutton").show();
 	
 	key = shufflepieces();
+	pieces = key.slice();
 	board = shufflepieces();
+	shuffled = board.slice();
 	display();
 }
 
 function shufflepieces()
 {
+	var result = pieces.slice();
 	var temp;
 	var pos;
-	var len=pieces.length;
-	for (var i=0; i < pieces.length; i++)
+	var len=result.length;
+	for (var i=0; i < result.length; i++)
 	{
-		pos = Math.random()%len+i;
-		temp = pieces[i];
-		pieces[i] = pieces[pos];
-		pieces[pos] = temp;
+		pos = Math.floor((Math.random()*len)+i);
+		temp = result[i];
+		result[i] = result[pos];
+		result[pos] = temp;
 		len--;
 	}
-	return pieces;
+	len = 9-result.length;
+	for (var i=result.length; i < 9; i++)
+	{
+		pos = Math.floor((Math.random()*len)+1);
+		result[i] = result[pos];
+		len--;
+	}
+	return result;
 }
 
 function resetgame()
 {
-	board = shufflepieces();
+	board = shuffled.slice();
+	display();
 }
 
 function display()
 {
 	var tmp;
-	for (var i=0; i < pieces.length; i++)
+	for (var i=0; i < board.length; i++)
 	{
-		tmp = "#"+i;
+		tmp = "#b"+i;
 		$(tmp).attr("src",board[i]);
 		tmp = "#k"+i;
 		$(tmp).attr("src",key[i]);
 	}
+	$("#moves").html(moves);
 }
 
-function spotclicked(spot)
+function clicked(spot)
 {
-	alert(spot);
+	if(click <0 || click >8)
+	{
+		click = spot;
+		return;
+	}
+	moves++;
+	var tmp = board[click];
+	for (var i=click; i < spot; i++)
+	{
+		board[i] = board[i+1];
+	}
+	for (var i=click; i > spot; i--)
+	{
+		board[i] = board[i-1];
+	}
+	board[spot] = tmp;
+	click = -1;
+	display();
+	for(var i=0; i < 9; i++)
+	{
+		if(board[i] != key[i])
+		{
+			return;
+		}
+	}
+	alert("Yay! You're a moron!");
+	gamestarted = false;
+	$("#resetbutton").hide();
+	moves=0;
 }
