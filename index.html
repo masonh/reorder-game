@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Reorder!</title>
+<script type="text/javascript" src="jquery-1.7.2.js" ></script>
+<script type="text/javascript" src="reorder.js" ></script>
+<style type="text/css">
+	table#game {
+		float:left;
+	}
+	table#game td {
+		border: 1px solid black;
+		height:100px;
+		width:100px;
+	}
+	table#game td img {
+		height:100px;
+		width:100px;
+	}
+	table#key td {
+		border: 1px solid black;
+		height:50px;
+		width:50px;
+	}
+	#resetbutton {
+		display:none;
+	}
+</style>
+</head>
+<body>
+<input type="button" id="startbutton" onclick="startgame()" value="Start" />
+<input type="button" id="resetbutton" onclick="resetgame()" value="Reset" />
+<table id="game">
+<tr>
+	<td><img id="0" src="blank.png" alt="" /></td>
+	<td><img id="1" src="blank.png" alt="" /></td>
+	<td><img id="2" src="blank.png" alt="" /></td>
+</tr>
+<tr>
+	<td><img id="3" src="blank.png" alt="" /></td>
+	<td><img id="4" src="blank.png" alt="" /></td>
+	<td><img id="5" src="blank.png" alt="" /></td>
+</tr>
+<tr>
+	<td><img id="6" src="blank.png" alt="" /></td>
+	<td><img id="7" src="blank.png" alt="" /></td>
+	<td><img id="8" src="blank.png" alt="" /></td>
+</tr>
+</table>
+<table id="key">
+<tr>
+	<td><img id="k0" src="blank.png" alt="" /></td>
+	<td><img id="k1" src="blank.png" alt="" /></td>
+	<td><img id="k2" src="blank.png" alt="" /></td>
+</tr>
+<tr>
+	<td><img id="k3" src="blank.png" alt="" /></td>
+	<td><img id="k4" src="blank.png" alt="" /></td>
+	<td><img id="k5" src="blank.png" alt="" /></td>
+</tr>
+<tr>
+	<td><img id="k6" src="blank.png" alt="" /></td>
+	<td><img id="k7" src="blank.png" alt="" /></td>
+	<td><img id="k8" src="blank.png" alt="" /></td>
+</tr>
+</table>
+<div id="stats">
+</div>
+</body>
+</html>
