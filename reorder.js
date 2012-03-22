@@ -17,6 +17,7 @@ function startgame()
 			return;
 	}
 	gamestarted=true;
+	moves=0;
 	$("#startbutton").val("New Game");
 	$("#resetbutton").show();
 	
@@ -54,6 +55,7 @@ function shufflepieces(_pieces)
 function resetgame()
 {
 	board = shuffled.slice();
+	moves=0;
 	display();
 }
 
