@@ -16,6 +16,9 @@ function startgame()
 		if(!play)
 			return;
 	}
+	else {
+		$('table#game td').css('border','0');
+	}
 	gamestarted=true;
 	moves=0;
 	$("#startbutton").val("New Game");
@@ -74,17 +77,27 @@ function display()
 
 function clicked(spot)
 {
+	if(!gamestarted) {
+		alert('You must start the game first!');
+		return;
+	}
 	if(click <0 || click >8)
 	{
 		click = spot;
+		$('#b'+spot).css('margin','0');
+		$('#b'+spot).css('border','3px solid red');
 		return;
 	}
 	if(click == spot)
 	{
 		click = -1;
+		$('#b'+spot).css('margin','3px');
+		$('#b'+spot).css('border','0');
 		return;
 	}
 	moves++;
+	$('#b'+click).css('margin','3px');
+	$('#b'+click).css('border','0');
 	var tmp = board[click];
 	for (var i=click; i < spot; i++)
 	{
