@@ -59,6 +59,7 @@ function resetgame()
 {
 	board = shuffled.slice();
 	moves=0;
+	gamestarted=true;
 	display();
 }
 
