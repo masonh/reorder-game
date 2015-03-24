@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Reorder!</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" ></script>
+<script type="text/javascript" src="reorder.js" ></script>
+<style type="text/css">
+	table#game {
+		float:left;
+	}
+	table#game tr {
+		padding:0;
+		margin:0;
+		height:100px;
+	}
+	table#game td {
+		border: 1px solid black;
+		height:100px;
+		width:100px;
+		padding:0;
+		margin:0;
+	}
+	table#game td img {
+		padding:0;
+		margin:3px;
+		height:100px;
+		width:100px;
+	}
+	table#key td {
+		border: 1px solid black;
+		width:50px;
+	}
+	table#key td img {
+		width:50px;
+		height:50px;
+	}
+	#resetbutton {
+		display:none;
+	}
+</style>
+</head>
+<body>
+<input type="button" id="startbutton" onclick="startgame()" value="Start" />
+<input type="button" id="resetbutton" onclick="resetgame()" value="Reset" />
+<table id="game">
+<tr>
+	<td onclick="clicked(0)"><img id="b0" src="images/blank.png" alt="" /></td>
+	<td onclick="clicked(1)"><img id="b1" src="images/blank.png" alt="" /></td>
+	<td onclick="clicked(2)"><img id="b2" src="images/blank.png" alt="" /></td>
+</tr>
+<tr>
+	<td onclick="clicked(3)"><img id="b3" src="images/blank.png" alt="" /></td>
+	<td onclick="clicked(4)"><img id="b4" src="images/blank.png" alt="" /></td>
+	<td onclick="clicked(5)"><img id="b5" src="images/blank.png" alt="" /></td>
+</tr>
+<tr>
+	<td onclick="clicked(6)"><img id="b6" src="images/blank.png" alt="" /></td>
+	<td onclick="clicked(7)"><img id="b7" src="images/blank.png" alt="" /></td>
+	<td onclick="clicked(8)"><img id="b8" src="images/blank.png" alt="" /></td>
+</tr>
+</table>
+<table id="key">
+<tr>
+	<td><img id="k0" src="images/blank.png" alt="" /></td>
+	<td><img id="k1" src="images/blank.png" alt="" /></td>
+	<td><img id="k2" src="images/blank.png" alt="" /></td>
+</tr>
+<tr>
+	<td><img id="k3" src="images/blank.png" alt="" /></td>
+	<td><img id="k4" src="images/blank.png" alt="" /></td>
+	<td><img id="k5" src="images/blank.png" alt="" /></td>
+</tr>
+<tr>
+	<td><img id="k6" src="images/blank.png" alt="" /></td>
+	<td><img id="k7" src="images/blank.png" alt="" /></td>
+	<td><img id="k8" src="images/blank.png" alt="" /></td>
+</tr>
+</table>
+<div id="stats">Moves: <span id="moves">0</span>
+<input type="button" onclick="instructions()" value="Instructions"></input>
+</div>
+</body>
+</html>
